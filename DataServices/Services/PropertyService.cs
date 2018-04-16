@@ -29,7 +29,7 @@ namespace DataServices.Services
             return _property.Select(x => new
             {
                 id=x.Id,
-                Adress = x.Address,
+              
                 Caption = x.Caption,
      
                 Enabled = x.Enabled

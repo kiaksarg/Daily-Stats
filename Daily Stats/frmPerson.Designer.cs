@@ -68,28 +68,11 @@
             // txtRank
             // 
             this.txtRank.FormattingEnabled = true;
-            this.txtRank.Items.AddRange(new object[] {
-            "سرباز3",
-            "سرباز2",
-            "سرباز1",
-            "سرجوخه",
-            "دانشجو",
-            "گروهبان3",
-            "گروهبان2",
-            "گروهبان1",
-            "استوار2",
-            "استوار1",
-            "ستوان3",
-            "ستوان2",
-            "ستوان1",
-            "سروان",
-            "سرگرد",
-            "سرهنگ2",
-            "سرهنگ"});
             this.txtRank.Location = new System.Drawing.Point(302, 73);
             this.txtRank.Name = "txtRank";
             this.txtRank.Size = new System.Drawing.Size(141, 28);
             this.txtRank.TabIndex = 20;
+            this.txtRank.SelectedIndexChanged += new System.EventHandler(this.txtRank_SelectedIndexChanged);
             // 
             // chbEnabled
             // 

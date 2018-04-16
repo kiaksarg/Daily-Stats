@@ -18,13 +18,16 @@ namespace Daily_Stats
 
 
         IPersonService _personService;
+        IPropertyService _PropertyService;
         IUnitOfWork _unitOfWork;
         Person Person;
-        public frmPerson(IPersonService PersonService, IUnitOfWork IUnitOfWork, Person person = null)
+        public frmPerson(IPersonService PersonService, IPropertyService PropertyService, IUnitOfWork IUnitOfWork, Person person = null)
         {
             _unitOfWork = IUnitOfWork;
             _personService = PersonService;
+            _PropertyService = PropertyService;
             Person = person;
+
             InitializeComponent();
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -36,9 +39,11 @@ namespace Daily_Stats
                     Enabled = !chbEnabled.Checked,
                     FirstName = txtName.Text,
                     LastName = txtFamily.Text,
-                    Rank = txtRank.SelectedIndex,
+                    //Rank = txtRank.SelectedIndex,
                     Type = Convert.ToByte((rdoPayvar.Checked == true) ? 0 : 1),
-                   // State = 0,
+                    Property = _PropertyService.Get((long)txtRank.SelectedValue),
+
+                    // State = 0,
                     //OffEndDate = null,
                     //OffStartDate=null
 
@@ -58,7 +63,8 @@ namespace Daily_Stats
 
                 Person.FirstName = txtName.Text;
                 Person.LastName = txtFamily.Text;
-                Person.Rank = txtRank.SelectedIndex;
+                //Person.Rank = txtRank.SelectedIndex;
+                Person.Property_Id = (long?)txtRank.SelectedValue;
                 Person.Type = Convert.ToByte((rdoPayvar.Checked == true) ? 0 : 1);
 
                 _personService.EditPerson(Person);
@@ -74,15 +80,31 @@ namespace Daily_Stats
 
         private void frmPerson_Load(object sender, EventArgs e)
         {
+            var properties = _PropertyService.Get();
+
+
+            txtRank.DataSource = properties;
+            txtRank.DisplayMember = "Caption";
+            txtRank.ValueMember = "id";
+
             if (Person != null)
             {
                 chbEnabled.Checked = !Person.Enabled;
                 txtName.Text = Person.FirstName;
                 txtFamily.Text = Person.LastName;
-                txtRank.SelectedIndex = Person.Rank;
-                rdoPayvar.Checked = (Person.Type == 0) ? true : false;
+
+                txtRank.SelectedValue = Person.Property_Id ?? -1;
+
+                rdoPayvar.Checked = (Person.Type == 1) ? true : rdoVazife.Checked = true;
 
             }
+
         }
+
+        private void txtRank_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
+
+
     }
 }

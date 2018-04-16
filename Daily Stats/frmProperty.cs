@@ -36,8 +36,7 @@ namespace Daily_Stats
             grdProperty.Columns[1].Width = 44;
             grdProperty.Columns[2].Width = 60;
             grdProperty.Columns[2].HeaderText = "کپشن";
-            grdProperty.Columns[3].HeaderText = "نمایش";
-            grdProperty.Columns[3].Width = 44;
+           
          
         }
         private void btnInsert_Click(object sender, EventArgs e)

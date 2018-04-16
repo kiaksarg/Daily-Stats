@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Web;
 
@@ -53,35 +54,6 @@ public static class Utilty
         return rank + 'و';
     }
 
-    //        public static  void toRankAbbreviation( string rank)
-    //    {
-    //        //switch (rank)
-    //        //{
-    //        //    case "گروهبان سوم":
-    //        //        {
-    //        //            return 
-    //        //        }
-    //        //    default:
-    //        //        break;
-    //        //}
-
-    //        @"گروهبان سوم
-    //گروهبان دوم
-    //گروهبان یکم
-    //استوار دوم
-    //استوار یکم
-    //ستوان سوم
-    //ستوان دوم
-    //ستوان یکم
-    //سروان
-    //سرگرد
-    //سرهنگ دوم
-    //سرهنگ
-    //سرباز سوم
-    //سرباز دوم
-    //سرباز یکم
-    //سرجوخه"
-    //    }
     public static string ToEnglishDigit(this string txt)
     {
         //۰ ۱ ۲ ۳ ۴ ۵ ۶ ۷ ۸ ۹

@@ -41,8 +41,7 @@ namespace Daily_Stats
             grdPersones.Columns[0].Width = 45;
             grdPersones.Columns[1].HeaderText = "نام";
             grdPersones.Columns[2].HeaderText = "نام خانوادگی";
-            grdPersones.Columns[3].HeaderText = "درجه";
-            grdPersones.Columns[4].HeaderText = "کلاس";
+            grdPersones.Columns[3].HeaderText = "کلاس";
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
@@ -57,7 +56,7 @@ namespace Daily_Stats
 
         private void بهآمارگرفتنToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPerson frm = new frmPerson(_personService, _unitOfWork);
+            frmPerson frm = new frmPerson(_personService, _propertyService, _unitOfWork);
             frm.ShowDialog();
             FillGridd();
         }
@@ -372,7 +371,7 @@ namespace Daily_Stats
         }
         private void btnBuildReport_Click(object sender, EventArgs e)
         {
-          
+
 
         }
 
@@ -508,7 +507,7 @@ namespace Daily_Stats
             {
                 var person = _personService.GetPerson(SelectedId);
 
-                frmPerson frm = new frmPerson(_personService, _unitOfWork, person);
+                frmPerson frm = new frmPerson(_personService, _propertyService, _unitOfWork, person);
                 frm.ShowDialog();
                 if (checkBox1.Checked == true)
                 {
