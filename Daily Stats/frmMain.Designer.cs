@@ -34,6 +34,7 @@
             this.بهآمارگرفتنToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.لیستکسرشدههاToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuStates = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuProperty = new System.Windows.Forms.ToolStripMenuItem();
             this.دربارهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lstStates = new System.Windows.Forms.ListBox();
             this.btnEdit = new System.Windows.Forms.Button();
@@ -56,7 +57,6 @@
             this.btnIDeleteDV = new System.Windows.Forms.Button();
             this.txtDeleteDvCount = new System.Windows.Forms.TextBox();
             this.btnDeleteAllDV = new System.Windows.Forms.Button();
-            this.mnuProperty = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.grdPersones)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -122,6 +122,13 @@
             this.mnuStates.Size = new System.Drawing.Size(236, 30);
             this.mnuStates.Text = "حالت ها";
             this.mnuStates.Click += new System.EventHandler(this.mnuStates_Click);
+            // 
+            // mnuProperty
+            // 
+            this.mnuProperty.Name = "mnuProperty";
+            this.mnuProperty.Size = new System.Drawing.Size(236, 30);
+            this.mnuProperty.Text = "ویژگی";
+            this.mnuProperty.Click += new System.EventHandler(this.mnuProperty_Click);
             // 
             // دربارهToolStripMenuItem
             // 
@@ -321,7 +328,7 @@
             // 
             this.btnIDeleteDV.Location = new System.Drawing.Point(89, 51);
             this.btnIDeleteDV.Name = "btnIDeleteDV";
-            this.btnIDeleteDV.Size = new System.Drawing.Size(96, 27);
+            this.btnIDeleteDV.Size = new System.Drawing.Size(96, 32);
             this.btnIDeleteDV.TabIndex = 30;
             this.btnIDeleteDV.Text = "حذف";
             this.btnIDeleteDV.UseVisualStyleBackColor = true;
@@ -345,13 +352,6 @@
             this.btnDeleteAllDV.Text = "حذف همه";
             this.btnDeleteAllDV.UseVisualStyleBackColor = true;
             this.btnDeleteAllDV.Click += new System.EventHandler(this.btnDeleteAllDV_Click);
-            // 
-            // mnuProperty
-            // 
-            this.mnuProperty.Name = "mnuProperty";
-            this.mnuProperty.Size = new System.Drawing.Size(236, 30);
-            this.mnuProperty.Text = "ویژگی";
-            this.mnuProperty.Click += new System.EventHandler(this.mnuProperty_Click);
             // 
             // pictureBox1
             // 

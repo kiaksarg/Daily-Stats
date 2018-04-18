@@ -9,7 +9,7 @@ namespace DataServices.Services
         object GetEnabledPeople();
         object GetDisabledPeople();
         void Insert(Person person);
-        void EditState(long id, PersonState state);
+        void EditState(long id, long state);
         Person Fetch(long id);
         void SetStartDate(long id, DateTime date);
         void SetEndDate(long id, DateTime date);

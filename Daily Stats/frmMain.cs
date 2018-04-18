@@ -43,11 +43,21 @@ namespace Daily_Stats
             grdPersones.Columns[2].HeaderText = "نام خانوادگی";
             grdPersones.Columns[3].HeaderText = "کلاس";
         }
+        public void loadStats()
+        {
+            lstStates.DataSource = _stateService.Get();
+
+            lstStates.DisplayMember = "Caption";
+            lstStates.ValueMember = "id";
+
+        }
         private void frmMain_Load(object sender, EventArgs e)
         {
             lblDvCount.Text = _personService.GetDvCount() + "";
+
             FillGridd();
             dtStartDate.Value = PersianDateTime.Now.ToDateTime();
+            loadStats();
         }
 
 
@@ -362,7 +372,7 @@ namespace Daily_Stats
             {
                 if (item.OffEndDate.Date <= DateTime.Now.Date)
                 {
-                    _personService.EditState(item.Id, PersonState.Present);
+                 //   _personService.EditState(item.Id, PersonState.Present);
                     _personService.SetDate(item.Id, DateTime.MinValue, DateTime.MinValue);
                     _unitOfWork.SaveAllChanges();
                 }
@@ -381,12 +391,9 @@ namespace Daily_Stats
             if (grdPersones.SelectedRows.Count > 0)
             {
                 var selectedPersonId = grdPersones.SelectedRows[0].Cells[0].Value;
-                PersonState ps = (item.SelectedIndex == 12) ? PersonState.Present : (PersonState)item.SelectedIndex + 1;
-                _personService.EditState((long)selectedPersonId, ps);
+
+                _personService.EditState((long)selectedPersonId, (long)item.SelectedValue);
                 _unitOfWork.SaveAllChanges();
-
-
-
             }
         }
 
@@ -399,8 +406,8 @@ namespace Daily_Stats
                 SelectedId = (long)selectedPersonId;
                 var person = _personService.Fetch((long)selectedPersonId);
                 //PersonState state = (PersonState)person.State;
-
-                //////////////  lstStates.SelectedIndex = (person.State == 0) ? 12 : person.State - 1;
+                if(person.State_Id!=null)
+                lstStates.SelectedValue = person.State_Id;
 
                 try
                 {
@@ -438,6 +445,8 @@ namespace Daily_Stats
             {
                 var selectedPersonId = grdPersones.SelectedRows[0].Cells[0].Value;
                 PersonState ps = (PersonState)item.SelectedIndex + 1;
+
+
                 //if (ps == PersonState.AnnualOff || ps == PersonState.DailyOff || ps == PersonState.LeaveIncentive)
                 //{
                 //    dtEndDate.Enabled = true;

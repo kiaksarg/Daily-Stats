@@ -61,10 +61,10 @@ namespace DataServices.Services
                 Type = (x.Type == 0) ? "پایور" : "وظیفه"
             }).ToList();
         }
-        public void EditState(long id, PersonState state)
+        public void EditState(long id, long sId)
         {
             var Person = _person.Where(x => x.Id == id).FirstOrDefault();
-            //Person.State = (byte)state;
+            Person.State_Id = sId;
             _unitOfWork.MarkAsChanged(Person);
 
 
