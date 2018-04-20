@@ -34,17 +34,17 @@ namespace Daily_Stats
             grdProperty.Columns[0].Width = 44;
             grdProperty.Columns[1].HeaderText = "آدرس";
             grdProperty.Columns[1].Width = 44;
-            grdProperty.Columns[2].Width = 60;
+            grdProperty.Columns[2].Width = 90;
             grdProperty.Columns[2].HeaderText = "کپشن";
-           
-         
+
+
         }
         private void btnInsert_Click(object sender, EventArgs e)
         {
             _propertyService.Insert(new DataModel.Property()
             {
                 Address = txtAdress.Text,
-                Caption = txtCaption.Text,     
+                Caption = txtCaption.Text,
                 Enabled = chEnabled.Checked
 
             });
@@ -57,6 +57,7 @@ namespace Daily_Stats
             {
                 MessageBox.Show("حالت اضافه نشد.", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            FillGrid();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -88,7 +89,7 @@ namespace Daily_Stats
                 txtAdress.Text = property.Address;
                 txtCaption.Text = property.Caption;
 
-            
+
                 chEnabled.Checked = property.Enabled;
 
             }

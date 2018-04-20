@@ -381,7 +381,7 @@ namespace Daily_Stats
         }
         private void btnBuildReport_Click(object sender, EventArgs e)
         {
-
+           
 
         }
 
@@ -406,8 +406,8 @@ namespace Daily_Stats
                 SelectedId = (long)selectedPersonId;
                 var person = _personService.Fetch((long)selectedPersonId);
                 //PersonState state = (PersonState)person.State;
-             
-                    lstStates.SelectedValue = person.State_Id ?? 1;
+
+                lstStates.SelectedValue = person.State_Id ?? 1;
 
                 try
                 {

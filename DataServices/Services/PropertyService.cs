@@ -28,10 +28,10 @@ namespace DataServices.Services
         {
             return _property.Select(x => new
             {
-                id=x.Id,
-              
+                id = x.Id,
+                Address = x.Address,
                 Caption = x.Caption,
-     
+
                 Enabled = x.Enabled
             }).ToList();
 
