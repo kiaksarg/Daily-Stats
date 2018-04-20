@@ -372,7 +372,7 @@ namespace Daily_Stats
             {
                 if (item.OffEndDate.Date <= DateTime.Now.Date)
                 {
-                 //   _personService.EditState(item.Id, PersonState.Present);
+                    //   _personService.EditState(item.Id, PersonState.Present);
                     _personService.SetDate(item.Id, DateTime.MinValue, DateTime.MinValue);
                     _unitOfWork.SaveAllChanges();
                 }
@@ -406,8 +406,8 @@ namespace Daily_Stats
                 SelectedId = (long)selectedPersonId;
                 var person = _personService.Fetch((long)selectedPersonId);
                 //PersonState state = (PersonState)person.State;
-                if(person.State_Id!=null)
-                lstStates.SelectedValue = person.State_Id;
+             
+                    lstStates.SelectedValue = person.State_Id ?? 1;
 
                 try
                 {
@@ -585,6 +585,7 @@ namespace Daily_Stats
 
             frmState frm = new frmState(_stateService, _unitOfWork);
             frm.ShowDialog();
+            loadStats();
         }
 
         private void grdPersones_CellContentClick(object sender, DataGridViewCellEventArgs e)
