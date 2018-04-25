@@ -43,10 +43,15 @@ namespace Daily_Stats
             var _personService = container.GetInstance<PersonService>();
             var _stateService = container.GetInstance<StateService>();
             var _propertyService = container.GetInstance<PropertyService>();
+            var _settingService = container.GetInstance<SettingService>();
+
+  
+
+
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain(_personService, _propertyService, _stateService, _uow));
+            Application.Run(new frmMain(_personService, _propertyService, _stateService, _uow, _settingService));
         }
         public class ConsoleRegistry : Registry
         {
@@ -57,8 +62,15 @@ namespace Daily_Stats
                     scan.TheCallingAssembly();
                     scan.WithDefaultConventions();
                 });
+
                 // requires explicit registration; doesn't follow convention
+               
                 For<IPersonService>().Use<PersonService>();
+                For<IStateService>().Use<StateService>();
+                For<IPropertyService>().Use<PropertyService>();
+                For<ISettingService>().Use<SettingService>();
+
+                For<IExcelReportService>().Use<ExcelReportService>();
                 For<IUnitOfWork>().LifecycleIs(Lifecycles.Singleton).Use<Context>();
 
 

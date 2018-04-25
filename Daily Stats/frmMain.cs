@@ -13,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Word = Microsoft.Office.Interop.Word;
-
+using Excel = Microsoft.Office.Interop.Excel;
 namespace Daily_Stats
 {
     public partial class frmMain : Form
@@ -22,15 +22,19 @@ namespace Daily_Stats
         IPersonService _personService;
         IStateService _stateService;
         IPropertyService _propertyService;
+        ISettingService _settingService;
+
         IUnitOfWork _unitOfWork;
+
         string BaseAddress = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location) + "\\";
 
-        public frmMain(IPersonService PersonService, IPropertyService PropertyService, IStateService StateService, IUnitOfWork IUnitOfWork)
+        public frmMain(IPersonService PersonService, IPropertyService PropertyService, IStateService StateService, IUnitOfWork IUnitOfWork, ISettingService SettingService)
         {
             _unitOfWork = IUnitOfWork;
             _personService = PersonService;
             _stateService = StateService;
             _propertyService = PropertyService;
+            _settingService = SettingService;
             InitializeComponent();
             SelectedId = -1;
         }
@@ -372,17 +376,23 @@ namespace Daily_Stats
             {
                 if (item.OffEndDate.Date <= DateTime.Now.Date)
                 {
-                    //   _personService.EditState(item.Id, PersonState.Present);
+                    //_personService.EditState(item.Id, PersonState.Present);
                     _personService.SetDate(item.Id, DateTime.MinValue, DateTime.MinValue);
                     _unitOfWork.SaveAllChanges();
                 }
             }
 
         }
+        bool Flag = false;
         private void btnBuildReport_Click(object sender, EventArgs e)
         {
-           
+            var _excelReportService = StructureMap.Container.For<Program.ConsoleRegistry>().With("path").EqualTo("e:\\db\\E8394E00.xlsx").GetInstance<ExcelReportService>();    
 
+            var people = _personService.EnabledPeople();
+            _excelReportService.Totals(people, _settingService.Load().TotalsAddress);
+            _excelReportService.Close();
+
+            
         }
 
         private void lstStates_Click(object sender, EventArgs e)
@@ -598,6 +608,11 @@ namespace Daily_Stats
 
             frmProperty frm = new frmProperty(_propertyService, _unitOfWork);
             frm.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

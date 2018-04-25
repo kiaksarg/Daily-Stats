@@ -58,6 +58,7 @@
             this.txtDeleteDvCount = new System.Windows.Forms.TextBox();
             this.btnDeleteAllDV = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdPersones)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -300,6 +301,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.lblDvCount);
             this.groupBox1.Controls.Add(this.btnIDeleteDV);
             this.groupBox1.Controls.Add(this.txtDeleteDvCount);
@@ -363,6 +365,16 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(103, 120);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmMain
             // 
@@ -432,5 +444,6 @@
         private System.Windows.Forms.Button btnDeleteAllDV;
         private System.Windows.Forms.ToolStripMenuItem mnuStates;
         private System.Windows.Forms.ToolStripMenuItem mnuProperty;
+        private System.Windows.Forms.Button button1;
     }
 }
