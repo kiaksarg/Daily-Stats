@@ -17,5 +17,6 @@ namespace DataModel
         [Required]
         public bool Enabled { get; set; }
         public ICollection<Person> People { get; set; }
+        public bool Required { get; set; }
     }
 }

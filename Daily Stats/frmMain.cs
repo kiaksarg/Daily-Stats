@@ -40,12 +40,13 @@ namespace Daily_Stats
         }
         void FillGridd(bool enabled = false)
         {
-            grdPersones.DataSource = (!enabled) ? _personService.GetEnabledPeopleWithRank() : _personService.GetDisabledPeople();
+            grdPersones.DataSource = (!enabled) ? _personService.GetEnabledPeople_Grid() : _personService.GetDisabledPeople();
             grdPersones.Columns[0].HeaderText = "شناسه";
             grdPersones.Columns[0].Width = 45;
             grdPersones.Columns[1].HeaderText = "نام";
             grdPersones.Columns[2].HeaderText = "نام خانوادگی";
-            grdPersones.Columns[3].HeaderText = "کلاس";
+            grdPersones.Columns[3].HeaderText = "ویژگی";
+            grdPersones.Columns[4].HeaderText = "اولویت";
         }
         public void loadStats()
         {
@@ -70,303 +71,10 @@ namespace Daily_Stats
 
         private void بهآمارگرفتنToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPerson frm = new frmPerson(_personService, _propertyService, _unitOfWork);
+            frmPerson frm = new frmPerson(_personService, _propertyService, _unitOfWork, _settingService);
             frm.ShowDialog();
             FillGridd();
         }
-        public void WriteFarAgents(Word.Document document)
-        {
-            var FarAgents = _personService.GetFarAgents();
-
-            var gr = from x in FarAgents
-                     group x by x.Rank into g
-                     select new { Rank = g.Key, People = g.ToList() };
-
-            string farAtext = "مامور دور:";
-            List<Person> payvarfarAtext = new List<Person>();
-            foreach (var item in gr)
-            {
-                //if (item.People.Any(x => x.Type == 0) && !item.People.Any(x => x.Type == 1))
-                if (item.People.Any(x => x.Type == 1))
-                {
-                    farAtext += item.Rank.toRank().toRankVazife() + ':';
-                }
-
-                foreach (var person in item.People)
-                {
-                    if (person.Type == 1)
-                    {
-                        farAtext += person.LastName + '،';
-                    }
-                    else
-                    {
-                        payvarfarAtext.Add(person);
-                    }
-                }
-            }
-            foreach (var item in payvarfarAtext)
-            {
-                farAtext += $"{item.Rank.toRank()} {item.FirstName} {item.LastName}،";
-            }
-            //farAtext.TrimEnd('،');
-            document.Content.InsertAfter(farAtext);
-            document.Content.InsertAfter(Environment.NewLine);
-            //document.Content.InsertAfter(farAtext);
-
-
-        }
-        public void WriteCloseAgents(Word.Document document)
-        {
-            var CloseAgents = _personService.GetCloseAgents();
-
-            var gr = from x in CloseAgents
-                     group x by x.Rank into g
-                     select new { Rank = g.Key, People = g.ToList() };
-
-            string CloseAtext = "مامور نزدیک:";
-            List<Person> payvarCloseAtext = new List<Person>();
-            foreach (var item in gr)
-            {
-
-                if (item.People.Any(x => x.Type == 1))
-                {
-                    CloseAtext += item.Rank.toRank().toRankVazife() + ':';
-                }
-                foreach (var person in item.People)
-                {
-                    if (person.Type == 1)
-                    {
-                        CloseAtext += person.LastName + '،';
-                    }
-                    else
-                    {
-                        payvarCloseAtext.Add(person);
-                    }
-                }
-            }
-            foreach (var item in payvarCloseAtext)
-            {
-                CloseAtext += $"{item.Rank.toRank()} {item.FirstName} {item.LastName}،";
-            }
-            //CloseAtext.TrimEnd('،');
-            document.Content.InsertAfter(CloseAtext);
-            document.Content.InsertAfter(Environment.NewLine);
-            //document.Content.InsertAfter(CloseAtext);
-
-
-        }
-        public void Write_Absent(Word.Document document)
-        {
-            var people = _personService.GetState(PersonState.Absent).OrderBy(x => x.Rank);
-            string txt = "نهست:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            document.Content.InsertAfter(txt);
-            document.Content.InsertAfter(Environment.NewLine);
-        }
-        public void Write_AnnualOff(Word.Document document)
-        {
-            var people = _personService.GetState(PersonState.AnnualOff).OrderBy(x => x.Rank);
-            string txt = "مرخصی سالیانه:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            document.Content.InsertAfter(txt);
-            document.Content.InsertAfter(Environment.NewLine);
-        }
-        public void Write_DailyOff(Word.Document document)
-        {
-
-            var people = _personService.GetState(PersonState.DailyOff).OrderBy(x => x.Rank);
-            string txt = "مرخصی روزانه:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            document.Content.InsertAfter(txt);
-            document.Content.InsertAfter(Environment.NewLine);
-        }
-        public void Write_RestFridayPrayers(Word.Document document)
-        {
-
-            var people = _personService.GetState(PersonState.RestFridayPrayers).OrderBy(x => x.Rank);
-            string txt = "استراحت:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            if (people.Any())
-            {
-                document.Content.InsertAfter(txt);
-                document.Content.InsertAfter(Environment.NewLine);
-            }
-        }
-
-        public void Write_LeaveIncentive(Word.Document document)
-        {
-
-            var people = _personService.GetState(PersonState.LeaveIncentive).OrderBy(x => x.Rank);
-            string txt = "مرخصی تشویقی:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            if (people.Any())
-            {
-                document.Content.InsertAfter(txt);
-                document.Content.InsertAfter(Environment.NewLine);
-            }
-
-        }
-        public void Write_(Word.Document document)
-        {
-
-            var people = _personService.GetState(PersonState.LeaveIncentive).OrderBy(x => x.Rank);
-            string txt = "مرخصی تشویقی:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            document.Content.InsertAfter(txt);
-            document.Content.InsertAfter(Environment.NewLine);
-        }
-        public void Write_Shooting(Word.Document document)
-        {
-
-            var people = _personService.GetState(PersonState.Shooting).OrderBy(x => x.Rank);
-            string txt = " تیراندازی:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            if (people.Any())
-            {
-                document.Content.InsertAfter(txt);
-                document.Content.InsertAfter(Environment.NewLine);
-            }
-        }
-        public void Write_Guard(Word.Document document)
-        {
-
-            var people = _personService.GetState(PersonState.Guard).OrderBy(x => x.Rank);
-            string txt = "نگهبان:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            if (people.Any())
-            {
-                document.Content.InsertAfter(txt);
-                document.Content.InsertAfter(Environment.NewLine);
-            }
-        }
-        public void Write_Hospital(Word.Document document)
-        {
-
-            var people = _personService.GetState(PersonState.Hospital).OrderBy(x => x.Rank);
-            string txt = "بیمارستان:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            if (people.Any())
-            {
-                document.Content.InsertAfter(txt);
-                document.Content.InsertAfter(Environment.NewLine);
-            }
-        }
-        public void Write_Prison(Word.Document document)
-        {
-
-            var people = _personService.GetState(PersonState.Prison).OrderBy(x => x.Rank);
-            string txt = "زندان:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            if (people.Any())
-            {
-                document.Content.InsertAfter(txt);
-                document.Content.InsertAfter(Environment.NewLine);
-            }
-        }
-        public void Write_GetBede(Word.Document document)
-        {
-
-            var people = _personService.GetBede().OrderBy(x => x.Rank);
-            string txt = "مامور بعده:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            if (people.Any())
-            {
-                document.Content.InsertAfter(txt);
-                document.Content.InsertAfter(Environment.NewLine);
-            }
-        }
-        public void Write_Escapee(Word.Document document)
-        {
-
-            var people = _personService.GetState(PersonState.Escapee).OrderBy(x => x.Rank);
-            string txt = "فراری:";
-            foreach (var item in people)
-            {
-                var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-                txt += $"{rank} {item.FirstName} {item.LastName}،";
-            }
-            if (people.Any())
-            {
-                document.Content.InsertAfter(txt);
-                document.Content.InsertAfter(Environment.NewLine);
-            }
-        }
-        //public void Write_(Word.Document document)
-        //{
-
-        //    var people = _personService.GetState(PersonState.LeaveIncentive).OrderBy(x => x.Rank);
-        //    string txt = "مرخصی تشویقی:";
-        //    foreach (var item in people)
-        //    {
-        //        var rank = (item.Type == 0) ? item.Rank.toRank() : item.Rank.toRank().toRankVazife();
-
-        //        txt += $"{rank} {item.FirstName} {item.LastName}،";
-        //    }
-        //    document.Content.InsertAfter(txt);
-        //    document.Content.InsertAfter(Environment.NewLine);
-        //}
-
-
-        //public void Write_Absent(Word.Document document)
-        //{
-
-        //}
 
         public void changeState()
         {
@@ -383,16 +91,17 @@ namespace Daily_Stats
             }
 
         }
-        bool Flag = false;
+
         private void btnBuildReport_Click(object sender, EventArgs e)
         {
-            var _excelReportService = StructureMap.Container.For<Program.ConsoleRegistry>().With("path").EqualTo("e:\\db\\E8394E00.xlsx").GetInstance<ExcelReportService>();    
-
+            var _excelReportService = StructureMap.Container.For<Program.ConsoleRegistry>().With("path").EqualTo("d:\\Copy of E8394E00.xlsx").GetInstance<IExcelReportService>();
             var people = _personService.EnabledPeople();
-            _excelReportService.Totals(people, _settingService.Load().TotalsAddress);
+            _excelReportService.Totals(people);
+            _excelReportService.WriteStates(people);
+            _excelReportService.WriteLists(people);
             _excelReportService.Close();
 
-            
+
         }
 
         private void lstStates_Click(object sender, EventArgs e)
@@ -526,7 +235,7 @@ namespace Daily_Stats
             {
                 var person = _personService.GetPerson(SelectedId);
 
-                frmPerson frm = new frmPerson(_personService, _propertyService, _unitOfWork, person);
+                frmPerson frm = new frmPerson(_personService, _propertyService, _unitOfWork, _settingService, person);
                 frm.ShowDialog();
                 if (checkBox1.Checked == true)
                 {
@@ -613,6 +322,31 @@ namespace Daily_Stats
         private void button1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void grdPersones_RowDividerDoubleClick(object sender, DataGridViewRowDividerDoubleClickEventArgs e)
+        {
+
+        }
+
+        private void grdPersones_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (SelectedId != -1)
+            {
+                var person = _personService.GetPerson(SelectedId);
+
+                frmPerson frm = new frmPerson(_personService, _propertyService, _unitOfWork, _settingService, person);
+                frm.ShowDialog();
+                if (checkBox1.Checked == true)
+                {
+                    FillGridd(true);
+                }
+                else
+                {
+                    FillGridd(false);
+                }
+
+            }
         }
     }
 }

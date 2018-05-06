@@ -21,13 +21,14 @@ namespace Daily_Stats
         IPropertyService _PropertyService;
         IUnitOfWork _unitOfWork;
         Person Person;
-        public frmPerson(IPersonService PersonService, IPropertyService PropertyService, IUnitOfWork IUnitOfWork, Person person = null)
+        ISettingService _settingService;
+        public frmPerson(IPersonService PersonService, IPropertyService PropertyService, IUnitOfWork IUnitOfWork, ISettingService SettingService, Person person = null)
         {
             _unitOfWork = IUnitOfWork;
             _personService = PersonService;
             _PropertyService = PropertyService;
             Person = person;
-
+            _settingService = SettingService;
             InitializeComponent();
         }
         private void btnSave_Click(object sender, EventArgs e)
@@ -39,7 +40,7 @@ namespace Daily_Stats
                     Enabled = !chbEnabled.Checked,
                     FirstName = txtName.Text,
                     LastName = txtFamily.Text,
-                    //Rank = txtRank.SelectedIndex,
+                    Rank = (cmboRank.SelectedIndex == -1) ? cmboRank.Items.Count : cmboRank.SelectedIndex,
                     Type = Convert.ToByte((rdoPayvar.Checked == true) ? 0 : 1),
                     Property = _PropertyService.Get((long)txtRank.SelectedValue),
 
@@ -63,7 +64,7 @@ namespace Daily_Stats
 
                 Person.FirstName = txtName.Text;
                 Person.LastName = txtFamily.Text;
-                //Person.Rank = txtRank.SelectedIndex;
+                Person.Rank = (cmboRank.SelectedIndex == -1) ? cmboRank.Items.Count : cmboRank.SelectedIndex;
                 Person.Property_Id = (long?)txtRank.SelectedValue;
                 Person.Type = Convert.ToByte((rdoPayvar.Checked == true) ? 0 : 1);
 
@@ -87,16 +88,17 @@ namespace Daily_Stats
             txtRank.DisplayMember = "Caption";
             txtRank.ValueMember = "id";
 
+            cmboRank.Items.AddRange(_settingService.Load().Ranks.Split(Environment.NewLine.ToCharArray()).ToList<string>().Where(x => !string.IsNullOrWhiteSpace(x)).ToArray<object>());
+
             if (Person != null)
             {
                 chbEnabled.Checked = !Person.Enabled;
                 txtName.Text = Person.FirstName;
                 txtFamily.Text = Person.LastName;
-
+                cmboRank.SelectedIndex = (Person.Rank >= cmboRank.Items.Count) ? -1 : Person.Rank;
                 txtRank.SelectedValue = Person.Property_Id ?? -1;
 
                 rdoPayvar.Checked = (Person.Type == 1) ? true : rdoVazife.Checked = true;
-
             }
 
         }

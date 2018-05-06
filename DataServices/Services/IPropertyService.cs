@@ -1,4 +1,5 @@
 ﻿using DataModel;
+using System.Collections.Generic;
 
 namespace DataServices.Services
 {
@@ -10,5 +11,6 @@ namespace DataServices.Services
         Property Get(long id);
         void Insert(Property property);
         void setEnabled(long id, bool enabled);
+        List<Property> GetList();
     }
 }

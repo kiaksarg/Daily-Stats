@@ -33,7 +33,8 @@ namespace Daily_Stats
                 Address = txtAdress.Text,
                 Caption = txtCaption.Text,
                 Showable = !chShowable.Checked,
-                Enabled = chEnabled.Checked
+                Enabled = chEnabled.Checked,
+                Required = chRequired.Checked
 
             });
 
@@ -56,7 +57,7 @@ namespace Daily_Stats
             grdState.Columns[0].Width = 44;
             grdState.Columns[1].HeaderText = "آدرس";
             grdState.Columns[1].Width = 44;
-            grdState.Columns[2].Width =99;
+            grdState.Columns[2].Width = 99;
             grdState.Columns[2].HeaderText = "کپشن";
             grdState.Columns[3].HeaderText = "نمایش";
             grdState.Columns[3].Width = 44;
@@ -83,6 +84,7 @@ namespace Daily_Stats
 
                 chShowable.Checked = !state.Showable;
                 chEnabled.Checked = state.Enabled;
+                chRequired.Checked = state.Required;
 
             }
         }
@@ -98,7 +100,7 @@ namespace Daily_Stats
                 state.Caption = txtCaption.Text;
                 state.Showable = !chShowable.Checked;
                 state.Enabled = chEnabled.Enabled;
-
+                state.Required = chRequired.Checked;
                 _steteService.Edit(state);
 
                 _unitOfWork.SaveAllChanges();

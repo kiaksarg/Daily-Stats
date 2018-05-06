@@ -12,10 +12,12 @@ namespace DataServices.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IDbSet<Person> _person;
-        public PersonService(IUnitOfWork unitOfWork)
+        private readonly IPropertyService _propertyService;
+        public PersonService(IUnitOfWork unitOfWork, IPropertyService PropertyService)
         {
             _unitOfWork = unitOfWork;
             _person = _unitOfWork.Set<Person>();
+            _propertyService = PropertyService;
         }
 
         public void Insert(Person person)
@@ -59,6 +61,17 @@ namespace DataServices.Services
                 LastName = x.LastName,
                 Rank = x.Rank.toRank(),
                 Type = (x.Type == 0) ? "پایور" : "وظیفه"
+            }).ToList();
+        }
+        public object GetEnabledPeople_Grid()
+        {
+            return _person.Where(x => x.Enabled).ToList().Select(x => new
+            {
+                Id = x.Id,
+                Name = x.FirstName,
+                LastName = x.LastName,
+                Rank = _propertyService.Get(x.Property_Id ?? 1).Caption,
+                Type = x.Type
             }).ToList();
         }
         public void EditState(long id, long sId)

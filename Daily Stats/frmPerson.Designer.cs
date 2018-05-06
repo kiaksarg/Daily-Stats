@@ -41,12 +41,16 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.cmboRank = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmboRank);
+            this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.txtRank);
             this.groupBox1.Controls.Add(this.chbEnabled);
             this.groupBox1.Controls.Add(this.btnSave);
@@ -59,7 +63,7 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(512, 181);
+            this.groupBox1.Size = new System.Drawing.Size(512, 197);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "فرد";
@@ -77,7 +81,7 @@
             // chbEnabled
             // 
             this.chbEnabled.AutoSize = true;
-            this.chbEnabled.Location = new System.Drawing.Point(390, 128);
+            this.chbEnabled.Location = new System.Drawing.Point(87, 149);
             this.chbEnabled.Name = "chbEnabled";
             this.chbEnabled.Size = new System.Drawing.Size(81, 24);
             this.chbEnabled.TabIndex = 19;
@@ -86,7 +90,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(15, 128);
+            this.btnSave.Location = new System.Drawing.Point(6, 141);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 39);
             this.btnSave.TabIndex = 18;
@@ -99,9 +103,9 @@
             this.panel2.Controls.Add(this.rdoVazife);
             this.panel2.Controls.Add(this.rdoPayvar);
             this.panel2.Controls.Add(this.label4);
-            this.panel2.Location = new System.Drawing.Point(15, 66);
+            this.panel2.Location = new System.Drawing.Point(17, 66);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(245, 42);
+            this.panel2.Size = new System.Drawing.Size(243, 55);
             this.panel2.TabIndex = 17;
             // 
             // rdoVazife
@@ -178,11 +182,28 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "نام";
             // 
+            // cmboRank
+            // 
+            this.cmboRank.FormattingEnabled = true;
+            this.cmboRank.Location = new System.Drawing.Point(302, 118);
+            this.cmboRank.Name = "cmboRank";
+            this.cmboRank.Size = new System.Drawing.Size(141, 28);
+            this.cmboRank.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(449, 121);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(32, 20);
+            this.label5.TabIndex = 21;
+            this.label5.Text = "رتبه";
+            // 
             // frmPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 200);
+            this.ClientSize = new System.Drawing.Size(536, 221);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmPerson";
             this.Text = "frmPerson";
@@ -210,5 +231,7 @@
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox chbEnabled;
         private System.Windows.Forms.ComboBox txtRank;
+        private System.Windows.Forms.ComboBox cmboRank;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -13,7 +13,8 @@ namespace DomainClasses
         public string HeaderNameAddress { get; set; }
         public string HeaderDateAddress { get; set; }
         public bool IsPersianDate { get; set; }
-
+        public string Ranks { get; set; }
+        public string LstStartAddress { get; set; }
 
     }
 }

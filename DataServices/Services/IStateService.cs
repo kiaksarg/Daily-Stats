@@ -11,5 +11,7 @@ namespace DataServices.Services
         State Get(long id);
         void Insert(State state);
         void setEnabled(long id, bool enabled);
+        void setRequired(long id, bool required);
+        List<State> GetList();
     }
 }

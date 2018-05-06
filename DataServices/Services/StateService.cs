@@ -32,11 +32,16 @@ namespace DataServices.Services
                 Adress = x.Address,
                 Caption = x.Caption,
                 Showable = x.Showable,
-                Enabled = x.Enabled
+                Enabled = x.Enabled,
+                Required=x.Required
             }).ToList();
 
         }
+        public List<State> GetList()
+        {
+            return _state.ToList();
 
+        }
 
         public State Get(long id)
         {
@@ -54,6 +59,13 @@ namespace DataServices.Services
         {
             var entity = _state.Find(id);
             entity.Enabled = enabled;
+            _unitOfWork.MarkAsChanged(entity);
+
+        }
+        public void setRequired(long id, bool required)
+        {
+            var entity = _state.Find(id);
+            entity.Required = required;
             _unitOfWork.MarkAsChanged(entity);
 
         }

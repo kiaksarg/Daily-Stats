@@ -78,6 +78,8 @@
             this.grdPersones.Size = new System.Drawing.Size(755, 741);
             this.grdPersones.TabIndex = 2;
             this.grdPersones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPersones_CellContentClick);
+            this.grdPersones.RowDividerDoubleClick += new System.Windows.Forms.DataGridViewRowDividerDoubleClickEventHandler(this.grdPersones_RowDividerDoubleClick);
+            this.grdPersones.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.grdPersones_RowHeaderMouseDoubleClick);
             this.grdPersones.SelectionChanged += new System.EventHandler(this.grdPersones_SelectionChanged);
             // 
             // menuStrip1

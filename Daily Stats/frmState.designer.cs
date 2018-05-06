@@ -35,16 +35,17 @@
             this.txtCaption = new System.Windows.Forms.TextBox();
             this.chShowable = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.grdState = new System.Windows.Forms.DataGridView();
-            this.chEnabled = new System.Windows.Forms.CheckBox();
             this.btnEdit = new System.Windows.Forms.Button();
+            this.chEnabled = new System.Windows.Forms.CheckBox();
+            this.grdState = new System.Windows.Forms.DataGridView();
+            this.chRequired = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdState)).BeginInit();
             this.SuspendLayout();
             // 
             // btnInsert
             // 
-            this.btnInsert.Location = new System.Drawing.Point(6, 117);
+            this.btnInsert.Location = new System.Drawing.Point(6, 153);
             this.btnInsert.Name = "btnInsert";
             this.btnInsert.Size = new System.Drawing.Size(76, 38);
             this.btnInsert.TabIndex = 0;
@@ -96,6 +97,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.chRequired);
             this.groupBox1.Controls.Add(this.btnEdit);
             this.groupBox1.Controls.Add(this.chEnabled);
             this.groupBox1.Controls.Add(this.btnInsert);
@@ -107,22 +109,20 @@
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(462, 185);
+            this.groupBox1.Size = new System.Drawing.Size(462, 206);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "حالت ها";
             // 
-            // grdState
+            // btnEdit
             // 
-            this.grdState.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdState.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.grdState.Location = new System.Drawing.Point(0, 203);
-            this.grdState.Name = "grdState";
-            this.grdState.RowTemplate.Height = 28;
-            this.grdState.Size = new System.Drawing.Size(486, 290);
-            this.grdState.TabIndex = 7;
-            this.grdState.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdState_CellContentClick);
-            this.grdState.SelectionChanged += new System.EventHandler(this.grdState_SelectionChanged);
+            this.btnEdit.Location = new System.Drawing.Point(88, 153);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Size = new System.Drawing.Size(76, 38);
+            this.btnEdit.TabIndex = 7;
+            this.btnEdit.Text = "ویرایش";
+            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // chEnabled
             // 
@@ -136,21 +136,35 @@
             this.chEnabled.Text = "فعال";
             this.chEnabled.UseVisualStyleBackColor = true;
             // 
-            // btnEdit
+            // grdState
             // 
-            this.btnEdit.Location = new System.Drawing.Point(88, 117);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Size = new System.Drawing.Size(76, 38);
-            this.btnEdit.TabIndex = 7;
-            this.btnEdit.Text = "ویرایش";
-            this.btnEdit.UseVisualStyleBackColor = true;
-            this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
+            this.grdState.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdState.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.grdState.Location = new System.Drawing.Point(0, 224);
+            this.grdState.Name = "grdState";
+            this.grdState.RowTemplate.Height = 28;
+            this.grdState.Size = new System.Drawing.Size(486, 295);
+            this.grdState.TabIndex = 7;
+            this.grdState.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdState_CellContentClick);
+            this.grdState.SelectionChanged += new System.EventHandler(this.grdState_SelectionChanged);
+            // 
+            // chRequired
+            // 
+            this.chRequired.AutoSize = true;
+            this.chRequired.Checked = true;
+            this.chRequired.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chRequired.Location = new System.Drawing.Point(276, 161);
+            this.chRequired.Name = "chRequired";
+            this.chRequired.Size = new System.Drawing.Size(82, 24);
+            this.chRequired.TabIndex = 8;
+            this.chRequired.Text = "ضروری";
+            this.chRequired.UseVisualStyleBackColor = true;
             // 
             // frmState
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 493);
+            this.ClientSize = new System.Drawing.Size(486, 519);
             this.Controls.Add(this.grdState);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmState";
@@ -175,5 +189,6 @@
         private System.Windows.Forms.DataGridView grdState;
         private System.Windows.Forms.CheckBox chEnabled;
         private System.Windows.Forms.Button btnEdit;
+        private System.Windows.Forms.CheckBox chRequired;
     }
 }

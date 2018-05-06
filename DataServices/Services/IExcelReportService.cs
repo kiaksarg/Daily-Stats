@@ -7,10 +7,11 @@ namespace DataServices.Services
     {
         string ExcelPath { get; set; }
 
-        void Totals(List<Person> people, string totalsAddress);
+        void Totals(List<Person> people);
         void Close();
         void Save();
         void SaveAs(string path);
-
+        void WriteStates(List<Person> people);
+        void WriteLists(List<Person> people);
     }
 }

@@ -30,7 +30,13 @@ namespace DataServices.Services
                     HeaderDayAddress = "A1",
                     IsPersianDate = true,
                     TotalsAddress = "C",
-                    WriteHeader = true
+                    WriteHeader = true,
+                    Ranks = @"
+رئیس شعبه
+معاون
+کارمند
+",
+                    LstStartAddress = "13"
                 };
                 if (!File.Exists(Base)) Save(DefaultSetting);
                 return DefaultSetting;

@@ -6,6 +6,7 @@ namespace DataServices.Services
 {
     public interface IPersonService
     {
+        object GetEnabledPeople_Grid();
         object GetEnabledPeople();
         object GetDisabledPeople();
         void Insert(Person person);

@@ -40,14 +40,17 @@ namespace Daily_Stats
 
             var container = Container.For<ConsoleRegistry>();
             IUnitOfWork _uow = container.GetInstance<IUnitOfWork>();
-            var _personService = container.GetInstance<PersonService>();
-            var _stateService = container.GetInstance<StateService>();
-            var _propertyService = container.GetInstance<PropertyService>();
-            var _settingService = container.GetInstance<SettingService>();
-
-  
+            var _personService = container.GetInstance<IPersonService>();
+            var _stateService = container.GetInstance<IStateService>();
+            var _propertyService = container.GetInstance<IPropertyService>();
+            var _settingService = container.GetInstance<ISettingService>();
 
 
+
+//            var tmp = _settingService.Load();
+//            tmp.Ranks = @"
+//";
+//            _settingService.Save(tmp);
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -64,7 +67,7 @@ namespace Daily_Stats
                 });
 
                 // requires explicit registration; doesn't follow convention
-               
+
                 For<IPersonService>().Use<PersonService>();
                 For<IStateService>().Use<StateService>();
                 For<IPropertyService>().Use<PropertyService>();

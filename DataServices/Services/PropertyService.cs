@@ -36,7 +36,11 @@ namespace DataServices.Services
             }).ToList();
 
         }
+        public List<Property> GetList()
+        {
+            return _property.ToList();
 
+        }
 
         public Property Get(long id)
         {
