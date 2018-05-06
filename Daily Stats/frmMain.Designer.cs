@@ -53,12 +53,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnInsertDhbkh = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.lblDvCount = new System.Windows.Forms.Label();
             this.btnIDeleteDV = new System.Windows.Forms.Button();
             this.txtDeleteDvCount = new System.Windows.Forms.TextBox();
             this.btnDeleteAllDV = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.grdPersones)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -70,12 +70,12 @@
             // 
             this.grdPersones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdPersones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.grdPersones.Location = new System.Drawing.Point(420, 33);
+            this.grdPersones.Location = new System.Drawing.Point(410, 33);
             this.grdPersones.MultiSelect = false;
             this.grdPersones.Name = "grdPersones";
             this.grdPersones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdPersones.RowTemplate.Height = 28;
-            this.grdPersones.Size = new System.Drawing.Size(755, 741);
+            this.grdPersones.Size = new System.Drawing.Size(844, 741);
             this.grdPersones.TabIndex = 2;
             this.grdPersones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPersones_CellContentClick);
             this.grdPersones.RowDividerDoubleClick += new System.Windows.Forms.DataGridViewRowDividerDoubleClickEventHandler(this.grdPersones_RowDividerDoubleClick);
@@ -91,7 +91,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip1.Size = new System.Drawing.Size(1175, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1254, 33);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -147,7 +147,7 @@
             this.lstStates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstStates.FormattingEnabled = true;
             this.lstStates.ItemHeight = 25;
-            this.lstStates.Location = new System.Drawing.Point(239, 33);
+            this.lstStates.Location = new System.Drawing.Point(229, 33);
             this.lstStates.Margin = new System.Windows.Forms.Padding(6);
             this.lstStates.Name = "lstStates";
             this.lstStates.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -319,6 +319,16 @@
             this.groupBox1.Text = "دانشجویان";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(103, 120);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // lblDvCount
             // 
             this.lblDvCount.AutoSize = true;
@@ -368,22 +378,12 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(103, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1175, 774);
+            this.ClientSize = new System.Drawing.Size(1254, 774);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.txtSave);

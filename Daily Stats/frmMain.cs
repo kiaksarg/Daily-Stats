@@ -43,10 +43,12 @@ namespace Daily_Stats
             grdPersones.DataSource = (!enabled) ? _personService.GetEnabledPeople_Grid() : _personService.GetDisabledPeople();
             grdPersones.Columns[0].HeaderText = "شناسه";
             grdPersones.Columns[0].Width = 45;
-            grdPersones.Columns[1].HeaderText = "نام";
-            grdPersones.Columns[2].HeaderText = "نام خانوادگی";
-            grdPersones.Columns[3].HeaderText = "ویژگی";
-            grdPersones.Columns[4].HeaderText = "اولویت";
+            grdPersones.Columns[1].HeaderText = "عنوان";
+            grdPersones.Columns[2].HeaderText = "نام";
+            grdPersones.Columns[3].HeaderText = "نام خانوادگی";
+            grdPersones.Columns[4].HeaderText = "ویژگی";
+            grdPersones.Columns[5].HeaderText = "اولویت";
+            grdPersones.Columns[5].Width = 55;
         }
         public void loadStats()
         {

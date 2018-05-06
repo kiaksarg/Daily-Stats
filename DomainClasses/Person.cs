@@ -13,6 +13,7 @@ namespace DataModel
         [Required]
         [Key]
         public Int64 Id { get; set; }
+        public string Title { get; set; }
         [Required]
         public string FirstName { get; set; }
         [Required]

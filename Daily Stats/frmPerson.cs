@@ -38,6 +38,7 @@ namespace Daily_Stats
                 _personService.Insert(new DataModel.Person()
                 {
                     Enabled = !chbEnabled.Checked,
+                    Title = txtTitle.Text,
                     FirstName = txtName.Text,
                     LastName = txtFamily.Text,
                     Rank = (cmboRank.SelectedIndex == -1) ? cmboRank.Items.Count : cmboRank.SelectedIndex,
@@ -63,6 +64,7 @@ namespace Daily_Stats
                 Person.Enabled = !chbEnabled.Checked;
 
                 Person.FirstName = txtName.Text;
+                Person.Title = txtTitle.Text;
                 Person.LastName = txtFamily.Text;
                 Person.Rank = (cmboRank.SelectedIndex == -1) ? cmboRank.Items.Count : cmboRank.SelectedIndex;
                 Person.Property_Id = (long?)txtRank.SelectedValue;
@@ -97,7 +99,7 @@ namespace Daily_Stats
                 txtFamily.Text = Person.LastName;
                 cmboRank.SelectedIndex = (Person.Rank >= cmboRank.Items.Count) ? -1 : Person.Rank;
                 txtRank.SelectedValue = Person.Property_Id ?? -1;
-
+                txtTitle.Text = Person.Title;
                 rdoPayvar.Checked = (Person.Type == 1) ? true : rdoVazife.Checked = true;
             }
 
@@ -107,6 +109,9 @@ namespace Daily_Stats
         {
         }
 
+        private void cmboRank_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

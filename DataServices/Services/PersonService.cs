@@ -57,10 +57,11 @@ namespace DataServices.Services
             return _person.Where(x => !x.Enabled).ToList().Select(x => new
             {
                 Id = x.Id,
+                Title = x.Title,
                 Name = x.FirstName,
                 LastName = x.LastName,
                 Rank = x.Rank.toRank(),
-                Type = (x.Type == 0) ? "پایور" : "وظیفه"
+                Type = (x.Type == 0) ? "اول" : "دوم"
             }).ToList();
         }
         public object GetEnabledPeople_Grid()
@@ -68,10 +69,11 @@ namespace DataServices.Services
             return _person.Where(x => x.Enabled).ToList().Select(x => new
             {
                 Id = x.Id,
+                Title=x.Title,
                 Name = x.FirstName,
                 LastName = x.LastName,
                 Rank = _propertyService.Get(x.Property_Id ?? 1).Caption,
-                Type = x.Type
+                Type = (x.Type == 0) ? "اول" : "دوم"
             }).ToList();
         }
         public void EditState(long id, long sId)
