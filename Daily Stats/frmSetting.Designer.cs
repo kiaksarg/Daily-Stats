@@ -46,6 +46,8 @@
             this.chWriteHeader = new System.Windows.Forms.CheckBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.txtReportFileAddress = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -204,11 +206,29 @@
             this.label8.TabIndex = 16;
             this.label8.Text = "نام شعبه";
             // 
+            // txtReportFileAddress
+            // 
+            this.txtReportFileAddress.Location = new System.Drawing.Point(345, 368);
+            this.txtReportFileAddress.Name = "txtReportFileAddress";
+            this.txtReportFileAddress.Size = new System.Drawing.Size(227, 26);
+            this.txtReportFileAddress.TabIndex = 19;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(578, 370);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(106, 20);
+            this.label9.TabIndex = 18;
+            this.label9.Text = "آدرس فایل گزارش";
+            // 
             // frmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(832, 404);
+            this.Controls.Add(this.txtReportFileAddress);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.chWriteHeader);
@@ -255,5 +275,7 @@
         private System.Windows.Forms.CheckBox chWriteHeader;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtReportFileAddress;
+        private System.Windows.Forms.Label label9;
     }
 }

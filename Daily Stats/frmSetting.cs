@@ -33,6 +33,7 @@ namespace Daily_Stats
             txtTitles.Text = Setting.Titles;
             txtTotalsAddress.Text = Setting.TotalsAddress;
             chWriteHeader.Checked = Setting.WriteHeader;
+            txtReportFileAddress.Text = Setting.ReportFileAddress;
 
 
         }
@@ -48,6 +49,7 @@ namespace Daily_Stats
             Setting.Titles = txtTitles.Text;
             Setting.TotalsAddress = txtTotalsAddress.Text;
             Setting.WriteHeader = chWriteHeader.Checked;
+            Setting.ReportFileAddress = txtReportFileAddress.Text;
             _settingService.Save(Setting);
         }
     }

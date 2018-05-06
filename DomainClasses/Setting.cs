@@ -17,6 +17,7 @@ namespace DomainClasses
         public string Ranks { get; set; }
         public string LstStartAddress { get; set; }
         public string Titles { get; set; }
+        public string ReportFileAddress { get; set; }
 
     }
 }
