@@ -96,8 +96,13 @@ namespace Daily_Stats
 
         private void btnBuildReport_Click(object sender, EventArgs e)
         {
-            var _excelReportService = StructureMap.Container.For<Program.ConsoleRegistry>().With("path").EqualTo("d:\\Copy of E8394E00.xlsx").GetInstance<IExcelReportService>();
+            var setting = _settingService.Load();
+            var _excelReportService = StructureMap.Container.For<Program.ConsoleRegistry>().With("path").EqualTo("d:\\Copy of E8394E00.xlsx").With("setting").EqualTo(setting).GetInstance<IExcelReportService>();
             var people = _personService.EnabledPeople();
+
+            if (setting.WriteHeader)
+                _excelReportService.WriteHeader();
+
             _excelReportService.Totals(people);
             _excelReportService.WriteStates(people);
             _excelReportService.WriteLists(people);

@@ -44,12 +44,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.chWriteHeader = new System.Windows.Forms.CheckBox();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(726, 12);
+            this.label1.Location = new System.Drawing.Point(725, 80);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 20);
             this.label1.TabIndex = 0;
@@ -57,7 +59,7 @@
             // 
             // txtTotalsAddress
             // 
-            this.txtTotalsAddress.Location = new System.Drawing.Point(530, 12);
+            this.txtTotalsAddress.Location = new System.Drawing.Point(525, 80);
             this.txtTotalsAddress.Name = "txtTotalsAddress";
             this.txtTotalsAddress.Size = new System.Drawing.Size(100, 26);
             this.txtTotalsAddress.TabIndex = 1;
@@ -65,7 +67,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(683, 65);
+            this.label2.Location = new System.Drawing.Point(682, 136);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 20);
             this.label2.TabIndex = 2;
@@ -73,14 +75,14 @@
             // 
             // txtLstStartAddress
             // 
-            this.txtLstStartAddress.Location = new System.Drawing.Point(530, 68);
+            this.txtLstStartAddress.Location = new System.Drawing.Point(525, 136);
             this.txtLstStartAddress.Name = "txtLstStartAddress";
             this.txtLstStartAddress.Size = new System.Drawing.Size(100, 26);
             this.txtLstStartAddress.TabIndex = 3;
             // 
             // txtHeaderDayAddress
             // 
-            this.txtHeaderDayAddress.Location = new System.Drawing.Point(530, 125);
+            this.txtHeaderDayAddress.Location = new System.Drawing.Point(525, 196);
             this.txtHeaderDayAddress.Name = "txtHeaderDayAddress";
             this.txtHeaderDayAddress.Size = new System.Drawing.Size(100, 26);
             this.txtHeaderDayAddress.TabIndex = 5;
@@ -88,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(656, 122);
+            this.label3.Location = new System.Drawing.Point(655, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 20);
             this.label3.TabIndex = 4;
@@ -96,7 +98,7 @@
             // 
             // txtHeaderNameAddress
             // 
-            this.txtHeaderNameAddress.Location = new System.Drawing.Point(530, 182);
+            this.txtHeaderNameAddress.Location = new System.Drawing.Point(525, 250);
             this.txtHeaderNameAddress.Name = "txtHeaderNameAddress";
             this.txtHeaderNameAddress.Size = new System.Drawing.Size(100, 26);
             this.txtHeaderNameAddress.TabIndex = 7;
@@ -104,7 +106,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(663, 179);
+            this.label4.Location = new System.Drawing.Point(662, 253);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(142, 20);
             this.label4.TabIndex = 6;
@@ -112,7 +114,7 @@
             // 
             // txtHeaderDateAddress
             // 
-            this.txtHeaderDateAddress.Location = new System.Drawing.Point(530, 240);
+            this.txtHeaderDateAddress.Location = new System.Drawing.Point(525, 305);
             this.txtHeaderDateAddress.Name = "txtHeaderDateAddress";
             this.txtHeaderDateAddress.Size = new System.Drawing.Size(100, 26);
             this.txtHeaderDateAddress.TabIndex = 9;
@@ -120,7 +122,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(641, 237);
+            this.label5.Location = new System.Drawing.Point(640, 308);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(164, 20);
             this.label5.TabIndex = 8;
@@ -140,7 +142,7 @@
             this.txtTitles.Location = new System.Drawing.Point(277, 9);
             this.txtTitles.Name = "txtTitles";
             this.txtTitles.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtTitles.Size = new System.Drawing.Size(172, 254);
+            this.txtTitles.Size = new System.Drawing.Size(172, 319);
             this.txtTitles.TabIndex = 11;
             this.txtTitles.Text = "";
             // 
@@ -149,7 +151,7 @@
             this.txtRanks.Location = new System.Drawing.Point(33, 12);
             this.txtRanks.Name = "txtRanks";
             this.txtRanks.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtRanks.Size = new System.Drawing.Size(172, 254);
+            this.txtRanks.Size = new System.Drawing.Size(172, 316);
             this.txtRanks.TabIndex = 13;
             this.txtRanks.Text = "";
             // 
@@ -164,7 +166,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(12, 304);
+            this.btnSave.Location = new System.Drawing.Point(33, 359);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 33);
             this.btnSave.TabIndex = 14;
@@ -177,7 +179,7 @@
             this.chWriteHeader.AutoSize = true;
             this.chWriteHeader.Checked = true;
             this.chWriteHeader.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chWriteHeader.Location = new System.Drawing.Point(714, 285);
+            this.chWriteHeader.Location = new System.Drawing.Point(713, 368);
             this.chWriteHeader.Name = "chWriteHeader";
             this.chWriteHeader.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.chWriteHeader.Size = new System.Drawing.Size(91, 24);
@@ -185,11 +187,30 @@
             this.chWriteHeader.Text = "نوشتن هدر";
             this.chWriteHeader.UseVisualStyleBackColor = true;
             // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(525, 25);
+            this.txtName.Name = "txtName";
+            this.txtName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtName.Size = new System.Drawing.Size(100, 26);
+            this.txtName.TabIndex = 17;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(752, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(52, 20);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "نام شعبه";
+            // 
             // frmSetting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(832, 348);
+            this.ClientSize = new System.Drawing.Size(832, 404);
+            this.Controls.Add(this.txtName);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.chWriteHeader);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtRanks);
@@ -232,5 +253,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox chWriteHeader;
+        private System.Windows.Forms.TextBox txtName;
+        private System.Windows.Forms.Label label8;
     }
 }

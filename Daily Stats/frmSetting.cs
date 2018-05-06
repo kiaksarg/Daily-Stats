@@ -24,7 +24,7 @@ namespace Daily_Stats
         private void frmSetting_Load(object sender, EventArgs e)
         {
             Setting = _settingService.Load();
-
+            txtName.Text = Setting.Name;
             txtHeaderDateAddress.Text = Setting.HeaderDateAddress;
             txtHeaderDayAddress.Text = Setting.HeaderDayAddress;
             txtHeaderNameAddress.Text = Setting.HeaderNameAddress;
@@ -39,6 +39,7 @@ namespace Daily_Stats
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            Setting.Name = txtName.Text; 
             Setting.HeaderDateAddress = txtHeaderDateAddress.Text;
             Setting.HeaderDayAddress = txtHeaderDayAddress.Text;
             Setting.HeaderNameAddress = txtHeaderNameAddress.Text;

@@ -5,8 +5,8 @@ namespace DataServices.Services
 {
     public interface IExcelReportService
     {
+        void WriteHeader();
         string ExcelPath { get; set; }
-
         void Totals(List<Person> people);
         void Close();
         void Save();

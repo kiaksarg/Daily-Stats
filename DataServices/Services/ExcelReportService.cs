@@ -15,15 +15,15 @@ namespace DataServices.Services
     {
         private readonly IPropertyService _propertyService;
         private readonly IStateService _stateService;
-        ISettingService _settingService;
         public string ExcelPath { get; set; }
         private Application ExcelApp { get; set; }
         private Workbook WB { get; set; }
         private Worksheet Sheet { get; set; }
-        public ExcelReportService(IPropertyService PropertyService, IStateService StateService, ISettingService SettingService, string path)
+        public Setting Setting { get; set; }
+        public ExcelReportService(IPropertyService PropertyService, IStateService StateService, Setting setting, string path)
         {
             _propertyService = PropertyService;
-            _settingService = SettingService;
+            Setting = setting;
             ExcelPath = path;
 
             ExcelApp = new Application();
@@ -100,7 +100,7 @@ namespace DataServices.Services
         public void Totals(List<Person> people)
         {
 
-            var totalsAddress = _settingService.Load().TotalsAddress;
+            var totalsAddress = Setting.TotalsAddress;
 
             ResetTotals(people, totalsAddress);
 
@@ -154,7 +154,7 @@ namespace DataServices.Services
         {
             var states = _stateService.GetList();
             Regex re = new Regex(@"([a-zA-Z]+)(\d+)");
-            Match result = re.Match(_settingService.Load().LstStartAddress);
+            Match result = re.Match(Setting.LstStartAddress);
 
             string alphaPart = result.Groups[1].Value;
             int numberPart = Convert.ToInt32(result.Groups[2].Value);
@@ -189,6 +189,14 @@ namespace DataServices.Services
                 Sheet.Range[getLstStaetAddress(Pstate.Id, alphaPart, numberPart, states.Where(x => x.Showable && (x.Required || people.Any(y => y.State_Id == x.Id))).OrderBy(x => x.Address).ToList())].Value = tmpStr.TrimEnd(' ').TrimEnd('،');
 
             }
+
+        }
+        public void WriteHeader()
+        {
+            Sheet.Range[Setting.HeaderDayAddress].Value = PersianDateTime.Now.GetPersianDayOfWeek();
+            Sheet.Range[Setting.HeaderDateAddress].Value = PersianDateTime.Now.ToStringDate();
+            Sheet.Range[Setting.HeaderNameAddress].Value = Setting.Name;
+
 
         }
         public void Save()

@@ -25,6 +25,7 @@ namespace DataServices.Services
                 //Default setting
                 var DefaultSetting = new Setting()
                 {
+                    Name = "شعبه ؟",
                     HeaderDateAddress = "N1",
                     HeaderNameAddress = "F1",
                     HeaderDayAddress = "A1",

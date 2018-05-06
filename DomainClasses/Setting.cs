@@ -7,6 +7,7 @@ namespace DomainClasses
 {
     public class Setting
     {
+        public string Name { get; set; }
         public string TotalsAddress { get; set; }
         public bool WriteHeader { get; set; }
         public string HeaderDayAddress { get; set; }
