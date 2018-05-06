@@ -61,7 +61,7 @@ namespace DataServices.Services
                 Name = x.FirstName,
                 LastName = x.LastName,
                 Rank = x.Rank.toRank(),
-                Type = (x.Type == 0) ? "اول" : "دوم"
+                Type = (x.Type == 1) ? "اول" : "دوم"
             }).ToList();
         }
         public object GetEnabledPeople_Grid()
@@ -73,7 +73,7 @@ namespace DataServices.Services
                 Name = x.FirstName,
                 LastName = x.LastName,
                 Rank = _propertyService.Get(x.Property_Id ?? 1).Caption,
-                Type = (x.Type == 0) ? "اول" : "دوم"
+                Type = (x.Type == 1) ? "اول" : "دوم"
             }).ToList();
         }
         public void EditState(long id, long sId)

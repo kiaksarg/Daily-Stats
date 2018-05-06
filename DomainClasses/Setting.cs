@@ -15,6 +15,7 @@ namespace DomainClasses
         public bool IsPersianDate { get; set; }
         public string Ranks { get; set; }
         public string LstStartAddress { get; set; }
+        public string Titles { get; set; }
 
     }
 }

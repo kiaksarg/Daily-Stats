@@ -48,7 +48,7 @@ namespace Daily_Stats
             grdPersones.Columns[3].HeaderText = "نام خانوادگی";
             grdPersones.Columns[4].HeaderText = "ویژگی";
             grdPersones.Columns[5].HeaderText = "اولویت";
-            grdPersones.Columns[5].Width = 55;
+            grdPersones.Columns[5].Width = 56;
         }
         public void loadStats()
         {
@@ -183,7 +183,7 @@ namespace Daily_Stats
 
         }
 
-        private void txtSave_Click(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
             if (SelectedId != -1)
             {
@@ -268,7 +268,8 @@ namespace Daily_Stats
                     LastName = "dv0102",
                     Rank = (int)Rank.daneshjoo,
                     //  State = 0,
-                    Type = 1
+                    Type = 1,
+                    //Property_Id=
                 });
             }
             _unitOfWork.SaveAllChanges();
@@ -349,6 +350,12 @@ namespace Daily_Stats
                 }
 
             }
+        }
+
+        private void mnuSetting_Click(object sender, EventArgs e)
+        {
+            frmSetting frm = new frmSetting(_settingService);
+            frm.ShowDialog();
         }
     }
 }

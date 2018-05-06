@@ -91,6 +91,7 @@ namespace Daily_Stats
             txtRank.ValueMember = "id";
 
             cmboRank.Items.AddRange(_settingService.Load().Ranks.Split(Environment.NewLine.ToCharArray()).ToList<string>().Where(x => !string.IsNullOrWhiteSpace(x)).ToArray<object>());
+            txtTitle.Items.AddRange(_settingService.Load().Titles.Split(Environment.NewLine.ToCharArray()).ToList<string>().Where(x => !string.IsNullOrWhiteSpace(x)).ToArray<object>());
 
             if (Person != null)
             {

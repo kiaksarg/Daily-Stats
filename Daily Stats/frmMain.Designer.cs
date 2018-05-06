@@ -47,18 +47,18 @@
             this.dtEndDate = new Atf.UI.DateTimeSelector();
             this.label4 = new System.Windows.Forms.Label();
             this.txtDayCount = new System.Windows.Forms.TextBox();
-            this.txtSave = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.txtInsertDvCount = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnInsertDhbkh = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblDvCount = new System.Windows.Forms.Label();
             this.btnIDeleteDV = new System.Windows.Forms.Button();
             this.txtDeleteDvCount = new System.Windows.Forms.TextBox();
             this.btnDeleteAllDV = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.mnuSetting = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdPersones)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -87,7 +87,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.عملیاتToolStripMenuItem,
-            this.دربارهToolStripMenuItem});
+            this.دربارهToolStripMenuItem,
+            this.mnuSetting});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -252,15 +253,15 @@
             this.txtDayCount.TabIndex = 21;
             this.txtDayCount.TextChanged += new System.EventHandler(this.txtDayCount_TextChanged);
             // 
-            // txtSave
+            // btnSave
             // 
-            this.txtSave.Location = new System.Drawing.Point(12, 653);
-            this.txtSave.Name = "txtSave";
-            this.txtSave.Size = new System.Drawing.Size(75, 35);
-            this.txtSave.TabIndex = 23;
-            this.txtSave.Text = "ذخیره";
-            this.txtSave.UseVisualStyleBackColor = true;
-            this.txtSave.Click += new System.EventHandler(this.txtSave_Click);
+            this.btnSave.Location = new System.Drawing.Point(12, 653);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 35);
+            this.btnSave.TabIndex = 23;
+            this.btnSave.Text = "ذخیره";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // checkBox1
             // 
@@ -303,7 +304,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.lblDvCount);
             this.groupBox1.Controls.Add(this.btnIDeleteDV);
             this.groupBox1.Controls.Add(this.txtDeleteDvCount);
@@ -318,16 +318,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "دانشجویان";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(103, 120);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lblDvCount
             // 
@@ -378,6 +368,13 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
+            // mnuSetting
+            // 
+            this.mnuSetting.Name = "mnuSetting";
+            this.mnuSetting.Size = new System.Drawing.Size(90, 29);
+            this.mnuSetting.Text = "تنظیمات";
+            this.mnuSetting.Click += new System.EventHandler(this.mnuSetting_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -386,7 +383,7 @@
             this.ClientSize = new System.Drawing.Size(1254, 774);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.txtSave);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtDayCount);
             this.Controls.Add(this.label4);
@@ -434,7 +431,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtDayCount;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button txtSave;
+        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox txtInsertDvCount;
         private System.Windows.Forms.Label label3;
@@ -446,6 +443,6 @@
         private System.Windows.Forms.Button btnDeleteAllDV;
         private System.Windows.Forms.ToolStripMenuItem mnuStates;
         private System.Windows.Forms.ToolStripMenuItem mnuProperty;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem mnuSetting;
     }
 }
