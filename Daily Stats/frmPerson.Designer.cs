@@ -31,7 +31,7 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmboRank = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.txtRank = new System.Windows.Forms.ComboBox();
+            this.txtProperty = new System.Windows.Forms.ComboBox();
             this.chbEnabled = new System.Windows.Forms.CheckBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,8 +45,17 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.ComboBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.lblDvCount = new System.Windows.Forms.Label();
+            this.btnIDeleteDV = new System.Windows.Forms.Button();
+            this.txtDeleteDvCount = new System.Windows.Forms.TextBox();
+            this.btnDeleteAllDV = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnInsertDhbkh = new System.Windows.Forms.Button();
+            this.txtInsertDvCount = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -55,7 +64,7 @@
             this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.cmboRank);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.txtRank);
+            this.groupBox1.Controls.Add(this.txtProperty);
             this.groupBox1.Controls.Add(this.chbEnabled);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.panel2);
@@ -91,14 +100,14 @@
             this.label5.TabIndex = 21;
             this.label5.Text = "رتبه";
             // 
-            // txtRank
+            // txtProperty
             // 
-            this.txtRank.FormattingEnabled = true;
-            this.txtRank.Location = new System.Drawing.Point(27, 21);
-            this.txtRank.Name = "txtRank";
-            this.txtRank.Size = new System.Drawing.Size(141, 28);
-            this.txtRank.TabIndex = 3;
-            this.txtRank.SelectedIndexChanged += new System.EventHandler(this.txtRank_SelectedIndexChanged);
+            this.txtProperty.FormattingEnabled = true;
+            this.txtProperty.Location = new System.Drawing.Point(27, 21);
+            this.txtProperty.Name = "txtProperty";
+            this.txtProperty.Size = new System.Drawing.Size(141, 28);
+            this.txtProperty.TabIndex = 3;
+            this.txtProperty.SelectedIndexChanged += new System.EventHandler(this.txtRank_SelectedIndexChanged);
             // 
             // chbEnabled
             // 
@@ -221,11 +230,95 @@
             this.txtTitle.Size = new System.Drawing.Size(141, 28);
             this.txtTitle.TabIndex = 0;
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lblDvCount);
+            this.groupBox2.Controls.Add(this.btnIDeleteDV);
+            this.groupBox2.Controls.Add(this.txtDeleteDvCount);
+            this.groupBox2.Controls.Add(this.btnDeleteAllDV);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.btnInsertDhbkh);
+            this.groupBox2.Controls.Add(this.txtInsertDvCount);
+            this.groupBox2.Location = new System.Drawing.Point(12, 221);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.groupBox2.Size = new System.Drawing.Size(476, 140);
+            this.groupBox2.TabIndex = 29;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "درج گروهی";
+            // 
+            // lblDvCount
+            // 
+            this.lblDvCount.AutoSize = true;
+            this.lblDvCount.Location = new System.Drawing.Point(151, 61);
+            this.lblDvCount.Name = "lblDvCount";
+            this.lblDvCount.Size = new System.Drawing.Size(18, 20);
+            this.lblDvCount.TabIndex = 31;
+            this.lblDvCount.Text = "0";
+            // 
+            // btnIDeleteDV
+            // 
+            this.btnIDeleteDV.Location = new System.Drawing.Point(362, 36);
+            this.btnIDeleteDV.Name = "btnIDeleteDV";
+            this.btnIDeleteDV.Size = new System.Drawing.Size(96, 32);
+            this.btnIDeleteDV.TabIndex = 30;
+            this.btnIDeleteDV.Text = "حذف";
+            this.btnIDeleteDV.UseVisualStyleBackColor = true;
+            this.btnIDeleteDV.Click += new System.EventHandler(this.btnIDeleteDV_Click);
+            // 
+            // txtDeleteDvCount
+            // 
+            this.txtDeleteDvCount.Location = new System.Drawing.Point(279, 36);
+            this.txtDeleteDvCount.Name = "txtDeleteDvCount";
+            this.txtDeleteDvCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtDeleteDvCount.Size = new System.Drawing.Size(67, 26);
+            this.txtDeleteDvCount.TabIndex = 29;
+            this.txtDeleteDvCount.Text = "0";
+            // 
+            // btnDeleteAllDV
+            // 
+            this.btnDeleteAllDV.Location = new System.Drawing.Point(28, 53);
+            this.btnDeleteAllDV.Name = "btnDeleteAllDV";
+            this.btnDeleteAllDV.Size = new System.Drawing.Size(74, 37);
+            this.btnDeleteAllDV.TabIndex = 28;
+            this.btnDeleteAllDV.Text = "حذف همه";
+            this.btnDeleteAllDV.UseVisualStyleBackColor = true;
+            this.btnDeleteAllDV.Click += new System.EventHandler(this.btnDeleteAllDV_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(209, 61);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(33, 20);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "تعداد";
+            // 
+            // btnInsertDhbkh
+            // 
+            this.btnInsertDhbkh.Location = new System.Drawing.Point(362, 74);
+            this.btnInsertDhbkh.Name = "btnInsertDhbkh";
+            this.btnInsertDhbkh.Size = new System.Drawing.Size(96, 32);
+            this.btnInsertDhbkh.TabIndex = 27;
+            this.btnInsertDhbkh.Text = "درج";
+            this.btnInsertDhbkh.UseVisualStyleBackColor = true;
+            this.btnInsertDhbkh.Click += new System.EventHandler(this.btnInsertDhbkh_Click);
+            // 
+            // txtInsertDvCount
+            // 
+            this.txtInsertDvCount.Location = new System.Drawing.Point(279, 80);
+            this.txtInsertDvCount.Name = "txtInsertDvCount";
+            this.txtInsertDvCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtInsertDvCount.Size = new System.Drawing.Size(67, 26);
+            this.txtInsertDvCount.TabIndex = 25;
+            this.txtInsertDvCount.Text = "0";
+            // 
             // frmPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 213);
+            this.ClientSize = new System.Drawing.Size(500, 373);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmPerson";
             this.Text = "frmPerson";
@@ -234,6 +327,8 @@
             this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -252,10 +347,18 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox chbEnabled;
-        private System.Windows.Forms.ComboBox txtRank;
+        private System.Windows.Forms.ComboBox txtProperty;
         private System.Windows.Forms.ComboBox cmboRank;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox txtTitle;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label lblDvCount;
+        private System.Windows.Forms.Button btnIDeleteDV;
+        private System.Windows.Forms.TextBox txtDeleteDvCount;
+        private System.Windows.Forms.Button btnDeleteAllDV;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnInsertDhbkh;
+        private System.Windows.Forms.TextBox txtInsertDvCount;
     }
 }

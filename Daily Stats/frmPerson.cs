@@ -42,8 +42,8 @@ namespace Daily_Stats
                     FirstName = txtName.Text,
                     LastName = txtFamily.Text,
                     Rank = (cmboRank.SelectedIndex == -1) ? cmboRank.Items.Count : cmboRank.SelectedIndex,
-                    Type = Convert.ToByte((rdoPayvar.Checked == true) ? 0 : 1),
-                    Property = _PropertyService.Get((long)txtRank.SelectedValue),
+                    Type = Convert.ToByte((rdoPayvar.Checked == true) ? 1 : 0),
+                    Property = _PropertyService.Get((long)txtProperty.SelectedValue),
 
                     // State = 0,
                     //OffEndDate = null,
@@ -67,8 +67,8 @@ namespace Daily_Stats
                 Person.Title = txtTitle.Text;
                 Person.LastName = txtFamily.Text;
                 Person.Rank = (cmboRank.SelectedIndex == -1) ? cmboRank.Items.Count : cmboRank.SelectedIndex;
-                Person.Property_Id = (long?)txtRank.SelectedValue;
-                Person.Type = Convert.ToByte((rdoPayvar.Checked == true) ? 0 : 1);
+                Person.Property_Id = (long?)txtProperty.SelectedValue;
+                Person.Type = Convert.ToByte((rdoPayvar.Checked == true) ? 1 : 0);
 
                 _personService.EditPerson(Person);
                 _unitOfWork.SaveAllChanges();
@@ -83,12 +83,13 @@ namespace Daily_Stats
 
         private void frmPerson_Load(object sender, EventArgs e)
         {
+            lblDvCount.Text = _personService.GetDvCount() + "";
             var properties = _PropertyService.Get();
 
 
-            txtRank.DataSource = properties;
-            txtRank.DisplayMember = "Caption";
-            txtRank.ValueMember = "id";
+            txtProperty.DataSource = properties;
+            txtProperty.DisplayMember = "Caption";
+            txtProperty.ValueMember = "id";
 
             cmboRank.Items.AddRange(_settingService.Load().Ranks.Split(Environment.NewLine.ToCharArray()).ToList<string>().Where(x => !string.IsNullOrWhiteSpace(x)).ToArray<object>());
             txtTitle.Items.AddRange(_settingService.Load().Titles.Split(Environment.NewLine.ToCharArray()).ToList<string>().Where(x => !string.IsNullOrWhiteSpace(x)).ToArray<object>());
@@ -99,9 +100,14 @@ namespace Daily_Stats
                 txtName.Text = Person.FirstName;
                 txtFamily.Text = Person.LastName;
                 cmboRank.SelectedIndex = (Person.Rank >= cmboRank.Items.Count) ? -1 : Person.Rank;
-                txtRank.SelectedValue = Person.Property_Id ?? -1;
+                txtProperty.SelectedValue = Person.Property_Id ?? -1;
                 txtTitle.Text = Person.Title;
-                rdoPayvar.Checked = (Person.Type == 1) ? true : rdoVazife.Checked = true;
+
+                if (Person.Type == 1)
+
+                    rdoPayvar.Checked = true;
+                else
+                    rdoVazife.Checked = true;
             }
 
         }
@@ -113,6 +119,45 @@ namespace Daily_Stats
         private void cmboRank_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnInsertDhbkh_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < int.Parse(txtInsertDvCount.Text); i++)
+            {
+                _personService.Insert(new Person()
+                {
+                    Enabled = true,
+                    FirstName = "dv0102",
+                    LastName = "dv0102",
+                    Title = txtTitle.Text,
+                    Rank = (cmboRank.SelectedIndex == -1) ? cmboRank.Items.Count : cmboRank.SelectedIndex,
+                    Type = Convert.ToByte((rdoPayvar.Checked == true) ? 0 : 1),
+                    Property = _PropertyService.Get((long)txtProperty.SelectedValue)
+                });
+            }
+            _unitOfWork.SaveAllChanges();
+            lblDvCount.Text = _personService.GetDvCount() + "";
+        }
+
+        private void btnIDeleteDV_Click(object sender, EventArgs e)
+        {
+            _personService.DeleteDv(int.Parse(txtDeleteDvCount.Text));
+            _unitOfWork.SaveAllChanges();
+
+            lblDvCount.Text = _personService.GetDvCount() + "";
+        }
+
+        private void btnDeleteAllDV_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("آیا مطمئن هستید؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                _personService.DeleteAllDv();
+                _unitOfWork.SaveAllChanges();
+
+                lblDvCount.Text = _personService.GetDvCount() + "";
+            }
+        
         }
     }
 }

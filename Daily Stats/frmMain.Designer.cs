@@ -36,6 +36,7 @@
             this.mnuStates = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuProperty = new System.Windows.Forms.ToolStripMenuItem();
             this.دربارهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSetting = new System.Windows.Forms.ToolStripMenuItem();
             this.lstStates = new System.Windows.Forms.ListBox();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnEnabled = new System.Windows.Forms.Button();
@@ -49,20 +50,10 @@
             this.txtDayCount = new System.Windows.Forms.TextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.txtInsertDvCount = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnInsertDhbkh = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblDvCount = new System.Windows.Forms.Label();
-            this.btnIDeleteDV = new System.Windows.Forms.Button();
-            this.txtDeleteDvCount = new System.Windows.Forms.TextBox();
-            this.btnDeleteAllDV = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.mnuSetting = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.grdPersones)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,12 +61,12 @@
             // 
             this.grdPersones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdPersones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.grdPersones.Location = new System.Drawing.Point(410, 33);
+            this.grdPersones.Location = new System.Drawing.Point(431, 33);
             this.grdPersones.MultiSelect = false;
             this.grdPersones.Name = "grdPersones";
             this.grdPersones.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.grdPersones.RowTemplate.Height = 28;
-            this.grdPersones.Size = new System.Drawing.Size(844, 741);
+            this.grdPersones.Size = new System.Drawing.Size(844, 623);
             this.grdPersones.TabIndex = 2;
             this.grdPersones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdPersones_CellContentClick);
             this.grdPersones.RowDividerDoubleClick += new System.Windows.Forms.DataGridViewRowDividerDoubleClickEventHandler(this.grdPersones_RowDividerDoubleClick);
@@ -87,12 +78,12 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.عملیاتToolStripMenuItem,
-            this.دربارهToolStripMenuItem,
-            this.mnuSetting});
+            this.mnuSetting,
+            this.دربارهToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.menuStrip1.Size = new System.Drawing.Size(1254, 33);
+            this.menuStrip1.Size = new System.Drawing.Size(1275, 33);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,18 +132,26 @@
             this.دربارهToolStripMenuItem.Text = "درباره";
             this.دربارهToolStripMenuItem.Click += new System.EventHandler(this.دربارهToolStripMenuItem_Click);
             // 
+            // mnuSetting
+            // 
+            this.mnuSetting.Name = "mnuSetting";
+            this.mnuSetting.Size = new System.Drawing.Size(90, 29);
+            this.mnuSetting.Text = "تنظیمات";
+            this.mnuSetting.Click += new System.EventHandler(this.mnuSetting_Click);
+            // 
             // lstStates
             // 
+            this.lstStates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.lstStates.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.lstStates.Dock = System.Windows.Forms.DockStyle.Right;
             this.lstStates.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstStates.FormattingEnabled = true;
             this.lstStates.ItemHeight = 25;
-            this.lstStates.Location = new System.Drawing.Point(229, 33);
+            this.lstStates.Location = new System.Drawing.Point(245, 35);
             this.lstStates.Margin = new System.Windows.Forms.Padding(6);
             this.lstStates.Name = "lstStates";
             this.lstStates.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lstStates.Size = new System.Drawing.Size(181, 741);
+            this.lstStates.Size = new System.Drawing.Size(186, 622);
             this.lstStates.TabIndex = 5;
             this.lstStates.Click += new System.EventHandler(this.lstStates_Click);
             this.lstStates.SelectedIndexChanged += new System.EventHandler(this.lstStates_SelectedIndexChanged);
@@ -192,17 +191,17 @@
             this.groupBox2.Controls.Add(this.btnBuildReport);
             this.groupBox2.Controls.Add(this.btnEdit);
             this.groupBox2.Controls.Add(this.btnEnabled);
-            this.groupBox2.Location = new System.Drawing.Point(12, 212);
+            this.groupBox2.Location = new System.Drawing.Point(12, 226);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox2.Size = new System.Drawing.Size(200, 138);
+            this.groupBox2.Size = new System.Drawing.Size(208, 138);
             this.groupBox2.TabIndex = 12;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "عملیات";
             // 
             // dtStartDate
             // 
-            this.dtStartDate.Location = new System.Drawing.Point(12, 521);
+            this.dtStartDate.Location = new System.Drawing.Point(23, 384);
             this.dtStartDate.Name = "dtStartDate";
             this.dtStartDate.Size = new System.Drawing.Size(121, 27);
             this.dtStartDate.TabIndex = 9;
@@ -212,7 +211,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(170, 614);
+            this.label2.Location = new System.Drawing.Point(181, 477);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(33, 20);
             this.label2.TabIndex = 17;
@@ -221,7 +220,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(161, 521);
+            this.label1.Location = new System.Drawing.Point(172, 384);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 20);
             this.label1.TabIndex = 16;
@@ -229,7 +228,7 @@
             // 
             // dtEndDate
             // 
-            this.dtEndDate.Location = new System.Drawing.Point(12, 614);
+            this.dtEndDate.Location = new System.Drawing.Point(23, 477);
             this.dtEndDate.Name = "dtEndDate";
             this.dtEndDate.Size = new System.Drawing.Size(121, 27);
             this.dtEndDate.TabIndex = 19;
@@ -239,7 +238,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(144, 569);
+            this.label4.Location = new System.Drawing.Point(155, 432);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 20);
             this.label4.TabIndex = 20;
@@ -247,7 +246,7 @@
             // 
             // txtDayCount
             // 
-            this.txtDayCount.Location = new System.Drawing.Point(12, 566);
+            this.txtDayCount.Location = new System.Drawing.Point(23, 429);
             this.txtDayCount.Name = "txtDayCount";
             this.txtDayCount.Size = new System.Drawing.Size(121, 26);
             this.txtDayCount.TabIndex = 21;
@@ -255,7 +254,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(12, 653);
+            this.btnSave.Location = new System.Drawing.Point(23, 516);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 35);
             this.btnSave.TabIndex = 23;
@@ -266,7 +265,7 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(115, 659);
+            this.checkBox1.Location = new System.Drawing.Point(126, 522);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(89, 24);
             this.checkBox1.TabIndex = 24;
@@ -274,114 +273,23 @@
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // txtInsertDvCount
-            // 
-            this.txtInsertDvCount.Location = new System.Drawing.Point(6, 83);
-            this.txtInsertDvCount.Name = "txtInsertDvCount";
-            this.txtInsertDvCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtInsertDvCount.Size = new System.Drawing.Size(67, 26);
-            this.txtInsertDvCount.TabIndex = 25;
-            this.txtInsertDvCount.Text = "0";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(75, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(100, 20);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "دانشجویان حاضر";
-            // 
-            // btnInsertDhbkh
-            // 
-            this.btnInsertDhbkh.Location = new System.Drawing.Point(89, 84);
-            this.btnInsertDhbkh.Name = "btnInsertDhbkh";
-            this.btnInsertDhbkh.Size = new System.Drawing.Size(96, 32);
-            this.btnInsertDhbkh.TabIndex = 27;
-            this.btnInsertDhbkh.Text = "درج";
-            this.btnInsertDhbkh.UseVisualStyleBackColor = true;
-            this.btnInsertDhbkh.Click += new System.EventHandler(this.btnInsertDhbkh_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblDvCount);
-            this.groupBox1.Controls.Add(this.btnIDeleteDV);
-            this.groupBox1.Controls.Add(this.txtDeleteDvCount);
-            this.groupBox1.Controls.Add(this.btnDeleteAllDV);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.btnInsertDhbkh);
-            this.groupBox1.Controls.Add(this.txtInsertDvCount);
-            this.groupBox1.Location = new System.Drawing.Point(12, 356);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 149);
-            this.groupBox1.TabIndex = 28;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "دانشجویان";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // lblDvCount
-            // 
-            this.lblDvCount.AutoSize = true;
-            this.lblDvCount.Location = new System.Drawing.Point(6, 22);
-            this.lblDvCount.Name = "lblDvCount";
-            this.lblDvCount.Size = new System.Drawing.Size(18, 20);
-            this.lblDvCount.TabIndex = 31;
-            this.lblDvCount.Text = "0";
-            // 
-            // btnIDeleteDV
-            // 
-            this.btnIDeleteDV.Location = new System.Drawing.Point(89, 51);
-            this.btnIDeleteDV.Name = "btnIDeleteDV";
-            this.btnIDeleteDV.Size = new System.Drawing.Size(96, 32);
-            this.btnIDeleteDV.TabIndex = 30;
-            this.btnIDeleteDV.Text = "حذف";
-            this.btnIDeleteDV.UseVisualStyleBackColor = true;
-            this.btnIDeleteDV.Click += new System.EventHandler(this.btnIDeleteDV_Click);
-            // 
-            // txtDeleteDvCount
-            // 
-            this.txtDeleteDvCount.Location = new System.Drawing.Point(6, 51);
-            this.txtDeleteDvCount.Name = "txtDeleteDvCount";
-            this.txtDeleteDvCount.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.txtDeleteDvCount.Size = new System.Drawing.Size(67, 26);
-            this.txtDeleteDvCount.TabIndex = 29;
-            this.txtDeleteDvCount.Text = "0";
-            // 
-            // btnDeleteAllDV
-            // 
-            this.btnDeleteAllDV.Location = new System.Drawing.Point(0, 116);
-            this.btnDeleteAllDV.Name = "btnDeleteAllDV";
-            this.btnDeleteAllDV.Size = new System.Drawing.Size(74, 27);
-            this.btnDeleteAllDV.TabIndex = 28;
-            this.btnDeleteAllDV.Text = "حذف همه";
-            this.btnDeleteAllDV.UseVisualStyleBackColor = true;
-            this.btnDeleteAllDV.Click += new System.EventHandler(this.btnDeleteAllDV_Click);
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.pictureBox1.Image = global::Daily_Stats.Properties.Resources.analytics;
             this.pictureBox1.Location = new System.Drawing.Point(12, 51);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(192, 155);
+            this.pictureBox1.Size = new System.Drawing.Size(208, 169);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
-            // 
-            // mnuSetting
-            // 
-            this.mnuSetting.Name = "mnuSetting";
-            this.mnuSetting.Size = new System.Drawing.Size(90, 29);
-            this.mnuSetting.Text = "تنظیمات";
-            this.mnuSetting.Click += new System.EventHandler(this.mnuSetting_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1254, 774);
-            this.Controls.Add(this.groupBox1);
+            this.ClientSize = new System.Drawing.Size(1275, 656);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.pictureBox1);
@@ -403,8 +311,6 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -433,14 +339,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox txtInsertDvCount;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnInsertDhbkh;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label lblDvCount;
-        private System.Windows.Forms.Button btnIDeleteDV;
-        private System.Windows.Forms.TextBox txtDeleteDvCount;
-        private System.Windows.Forms.Button btnDeleteAllDV;
         private System.Windows.Forms.ToolStripMenuItem mnuStates;
         private System.Windows.Forms.ToolStripMenuItem mnuProperty;
         private System.Windows.Forms.ToolStripMenuItem mnuSetting;

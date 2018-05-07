@@ -60,7 +60,8 @@ namespace Daily_Stats
         }
         private void frmMain_Load(object sender, EventArgs e)
         {
-            lblDvCount.Text = _personService.GetDvCount() + "";
+            var properties = _propertyService.Get();
+
 
             FillGridd();
             dtStartDate.Value = PersianDateTime.Now.ToDateTime();
@@ -103,7 +104,7 @@ namespace Daily_Stats
                 MessageBox.Show("فایل گزارش پیدا نشد");
                 return;
             }
-           
+
             var _excelReportService = StructureMap.Container.For<Program.ConsoleRegistry>().With("path").EqualTo(setting.ReportFileAddress).With("setting").EqualTo(setting).GetInstance<IExcelReportService>();
             var people = _personService.EnabledPeople();
 
@@ -269,45 +270,6 @@ namespace Daily_Stats
             frm.ShowDialog();
         }
 
-        private void btnInsertDhbkh_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < int.Parse(txtInsertDvCount.Text); i++)
-            {
-                _personService.Insert(new Person()
-                {
-                    Enabled = true,
-                    FirstName = "dv0102",
-                    LastName = "dv0102",
-                    Rank = (int)Rank.daneshjoo,
-                    //  State = 0,
-                    Type = 1,
-                    //Property_Id=
-                });
-            }
-            _unitOfWork.SaveAllChanges();
-            lblDvCount.Text = _personService.GetDvCount() + "";
-            FillGridd();
-
-        }
-
-        private void btnIDeleteDV_Click(object sender, EventArgs e)
-        {
-            _personService.DeleteDv(int.Parse(txtDeleteDvCount.Text));
-            _unitOfWork.SaveAllChanges();
-
-            lblDvCount.Text = _personService.GetDvCount() + "";
-            FillGridd();
-        }
-
-        private void btnDeleteAllDV_Click(object sender, EventArgs e)
-        {
-            _personService.DeleteAllDv();
-            _unitOfWork.SaveAllChanges();
-
-            lblDvCount.Text = _personService.GetDvCount() + "";
-            FillGridd();
-
-        }
 
         private void groupBox1_Enter(object sender, EventArgs e)
         {
@@ -368,6 +330,21 @@ namespace Daily_Stats
         {
             frmSetting frm = new frmSetting(_settingService);
             frm.ShowDialog();
+        }
+
+        private void btnInsertDhbkh_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteAllDV_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnIDeleteDV_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
